@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>davaleba 12</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="clock"></div>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var clockElement = document.getElementById("clock");
+        clockElement.innerHTML = `<span style="color: red;">${padWithZero(
+          hours
+        )}</span>:<span style="color: green;">${padWithZero(
+          minutes
+        )}</span>:<span style="color: blue;">${padWithZero(seconds)}</span>`;
+      }
+      function padWithZero(number) {
+        return (number < 10 ? "0" : "") + number;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>
